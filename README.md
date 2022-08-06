@@ -5,3 +5,4 @@ T5 Model for Farsi.
 
 ## Materials
 ### Preprocess
+For more details check out [here](https://github.com/Sharif-SLPL/t5-fa/tree/main/preprocess).
