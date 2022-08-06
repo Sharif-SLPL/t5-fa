@@ -2,6 +2,7 @@
 #   Use it like below:
 #       bash filter.sh raw.txt
 #   =========================================================================
+MIN_NUMBER_OF_TOKENS=5
 
 #   filter non-farsi characters:
 sed 's/[^<200c>ۀﺀ-ﻍ ﻑ-ﻱ ًھﮒﮋﭙﭼۆۇێەﯼ!.,?؟!،]/ /g' $1 | \
@@ -18,4 +19,6 @@ sed 's/[ۆ]/ﻭ/g' - | \
 sed 's/  */ /g' - | \
 
 #   remove empty lines:
-sed -r '/^\s*$/d' -
+sed -r '/^\s*$/d' - | \
+
+awk "NF>=${MIN_NUMBER_OF_TOKENS}"
