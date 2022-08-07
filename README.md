@@ -23,7 +23,7 @@ You can simply run it by:
 python t5_tokenizer_train.py
 ```
 
-### Create configuration
+### Creating configuration
 Next, we create the model's configuration file. This is as simple as loading and storing [`**google/t5-v1_1-base**`](https://huggingface.co/google/t5-v1_1-base) in the local model folder. You can simply run the code by
 ```bash
 python t5_config.py
