@@ -4,7 +4,7 @@ T5 Model for Farsi.
 ## How to use
 
 ## Training
-The process of training is briefly as follows - generally from [transformers examples](https://github.com/huggingface/transformers/tree/main/examples/flax/language-modeling) -:
+The process of training is briefly as follows - generally from [transformers examples](https://github.com/huggingface/transformers/tree/main/examples/flax/language-modeling):
 
 We demonstrate how to train a T5 model using the span-masked language model objective as proposed in the [Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer](https://arxiv.org/abs/1910.10683). More specifically, we demonstrate how JAX/Flax can be leveraged to pre-train [**`google/t5-v1_1-base`**](https://huggingface.co/google/t5-v1_1-base) in Farsi on a single GPU (NVIDIA GeForce RTX 3060) for ? hours.
 
