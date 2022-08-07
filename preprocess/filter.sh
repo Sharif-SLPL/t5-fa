@@ -1,11 +1,11 @@
 #   This file uses `sed` to filter non-proper characters in a streamin manner.
 #   Use it like below:
-#       bash filter.sh raw.txt
+#       bash filter.sh < raw.txt > clean.txt
 #   =========================================================================
 MIN_NUMBER_OF_TOKENS=5
 
 #   filter non-farsi characters:
-sed 's/[^<200c>ۀﺀ-ﻍ ﻑ-ﻱ ًھﮒﮋﭙﭼۆۇێەﯼ!.,?؟!،]/ /g' $1 | \
+sed 's/[^<200c>ۀﺀ-ﻍ ﻑ-ﻱ ًھﮒﮋﭙﭼۆۇێەﯼ!.,?؟!،]/ /g' - | \
 
 #   unify characters:
 sed 's/[ﻱ­ێ]/ﯼ/g' - | \
