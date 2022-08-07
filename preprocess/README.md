@@ -15,11 +15,28 @@ curl -s -N [LINK_TO_TXT] | bash filter > clean.txt
 
 ### Steps
 
-#### Filtering non-Farsi words
+#### Filtering Non-Farsi Words
 In this process we just let "proper" words to be passed, the "proper" words are defined as follows:
 + All 32 characters of Farsi
 + Some Arabic characters which are ubiquitous in Farsi (like: `ۀ`, `ﺀ`, `ﻱ`, `ۆ`, `ۇ`, `ێ`)
 + Some symbolic characters (like `.`, `?`, `-`, `,` and their Farsi version)
 + `<200c>` which is half-space in Farsi
 
-__TO_BE_CONTINUED__
+#### Unifying Arabic/Farsi Characters
+In farsi there are lots of texts which uses different shapes of characters for a specefic one in Farsi although they are inherently the same. So in this step we replace the less frequent characters with their alternative as follows:
+
++ `ێ` and `ﻱ` --> `ﯼ`
++ `ۀ` and `ﺓ` --> `ﻩ`
++ `ﻙ` --> `ک`
++ `ﺇ` --> `ا`
++ `ڒ` --> `ر`
++ `ۆ` --> `و`
+
+#### Unifying Spaces
+After all of these preprocesses it'd be better if we unify all spaces with one.
+
+#### Removing Empty Lines
+There could be several lines that became empty after these steps. So in this step we will remove empty lines.
+
+#### Removing Short Lines
+There is a variable called `MIN_NUMBER_OF_TOKENS` in this file which controls the minimum number of words (splited by space) in each line. In the final step we remove lines with less than `MIN_NUMBER_OF_TOKENS` words.
