@@ -2,11 +2,15 @@
 This directory contains files related to the preprocessing phase. Brief explanation for each them are as follows:
 
 ## `filter.sh`
-This file is simply the heart of our preprocessing process. Instead of trimming the raw texts we made a bash script which only allows wanted character to be passed. By this approach we decrease both the time and memory consumed in this process since it uses `sed` it deals with the input file as a stream so it's much faster than loading the file into the memory. It roughly can preprocess each 1 GB of data in a minute.
+This file is simply the heart of our preprocessing process. Instead of trimming the raw texts we made a bash script which only allows wanted character to be passed. By this approach we decrease both the time and memory consumed in this process since it uses `sed` it deals with the input file as a stream so it's much faster than loading the file into the memory. It roughly can preprocess each 1 GB of data in a minute. It's tested on Ubuntu 20.04. You may need some changes if you wanted to run it from Google Colab.
 
 ### Usage
 ```bash
-bash filter.sh raw.txt
+bash filter.sh < raw.txt > clean.txt
+```
+You can also directly clean your data before downloading it by `curl` as follows:
+```bash
+curl -s -N [LINK_TO_TXT] | bash filter > clean.txt
 ```
 
 ### Steps
