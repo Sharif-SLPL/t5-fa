@@ -4,7 +4,7 @@ import datasets
 from t5_tokenizer_model import SentencePieceUnigramTokenizer
 
 
-vocab_size = 200_000
+vocab_size = 100_000
 input_sentence_size = None
 
 # Initialize a dataset
