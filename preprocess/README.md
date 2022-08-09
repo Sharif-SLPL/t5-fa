@@ -40,3 +40,13 @@ There could be several lines that became empty after these steps. So in this ste
 
 #### Removing Short Lines
 There is a variable called `MIN_NUMBER_OF_TOKENS` in this file which controls the minimum number of words (splited by space) in each line. In the final step we remove lines with less than `MIN_NUMBER_OF_TOKENS` words.
+
+
+## `train-test-split.sh`
+Since it would be time/memory consuming to separate vast amounts of text data using python we need a stream-based script. This file is addressing these issues.
+
+### Usage
+```bash
+bash train-test-split.sh [fname].txt [TRAIN_RATIO]
+```
+where `[fname].txt` is the input file name and the `[TRAIN_RATIO]` is a number between 0 and 1 indicating the proportion of train set respected to the test set. 
