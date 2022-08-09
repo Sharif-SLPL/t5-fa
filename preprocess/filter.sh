@@ -5,7 +5,7 @@
 MIN_NUMBER_OF_TOKENS=5
 
 #   filter non-farsi characters:
-sed 's/[^<200c>ۀﺀ-ﻍ ﻑ-ﻱ ًھﮒﮋﭙﭼۆۇێەﯼ!.,?؟!،]/ /g' - | \
+sed 's/[^<200c>ۀﺀ-ﻍ ﻑ-ﻱ ًھکﮒﮋﭙﭼۆۇێەﯼ!.,?؟!،]/ /g' - | \
 
 #   unify characters:
 sed 's/[ﻱ­ێ]/ﯼ/g' - | \
