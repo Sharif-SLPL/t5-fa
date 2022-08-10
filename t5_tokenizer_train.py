@@ -1,5 +1,9 @@
 #!/usr/bin/env python
-import datasets
+import sys
+import os
+from datasets import load_dataset
+from pathlib import Path
+
 
 from t5_tokenizer_model import SentencePieceUnigramTokenizer
 
@@ -7,11 +11,32 @@ from t5_tokenizer_model import SentencePieceUnigramTokenizer
 vocab_size = 100_000
 input_sentence_size = None
 
-# Initialize a dataset
-dataset = datasets.load_dataset(
-  "oscar",
-  name="unshuffled_deduplicated_fa",
-  split="train")
+
+# Initialize a dataset - from text file
+if len(sys.argv) > 2:
+  print("Loading from text...")
+  TRAIN_FILE = sys.argv[1]
+  CACHE_DIR = sys.argv[2]
+
+  data_files = {}
+  ds_name = Path(TRAIN_FILE).stem
+  Path(os.path.join(CACHE_DIR, ds_name)).mkdir(exist_ok=True, parents=True)
+  
+  data_files["train"] = TRAIN_FILE
+  assert TRAIN_FILE.split(".")[-1] == "txt"
+  
+  dataset = load_dataset(
+    "text",
+    data_files=data_files,
+    cache_dir=CACHE_DIR)
+
+# Initialize a dataset - from Huggingface/Datasets
+else:
+  print("Loading from huggingface/datasets...")
+  dataset = datasets.load_dataset(
+    "oscar",
+    name="unshuffled_deduplicated_fa",
+    split="train")
 
 tokenizer = SentencePieceUnigramTokenizer(
   unk_token="<unk>",

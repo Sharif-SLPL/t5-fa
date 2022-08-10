@@ -1,7 +1,7 @@
-MODEL_DIR="[PATH_TO_MODEL_DIR]"
-CACHE_DIR="[PATH_TO_CACHE_DIR]"
-TRAINING_FILE="[PATH_TO_TRAINING_FILE]"
-VALIDATION_FILE="[PATH_TO_VALIDATION_FILE]"
+MODEL_DIR="/home/tensorflow/t5-fa/t5-fa"
+CACHE_DIR="/home/tensorflow/.cache/t5-fa/sabouri"
+TRAINING_FILE="/mnt/t5-fa/data/all_train.txt"
+VALIDATION_FILE="/mnt/t5-fa/data/all_test.txt"
 
 python run_t5_mlm_flax.py \
     --model_name_or_path=$MODEL_DIR \
@@ -12,7 +12,7 @@ python run_t5_mlm_flax.py \
     --tokenizer_name=$MODEL_DIR \
     --do_train \
     --do_eval \
-    --validation_file=$VALIDATION_FILE
+    --validation_file=$VALIDATION_FILE \
     --train_file=$TRAINING_FILE \
     --max_seq_length="256" \
     --per_device_train_batch_size="64" \
@@ -26,8 +26,7 @@ python run_t5_mlm_flax.py \
     --warmup_steps="2000" \
     --logging_steps="500" \
     --save_steps="2500" \
-    --preprocessing_num_workers=20 \
+    --preprocessing_num_workers=20
     # --push_to_hub
     # --dataset_name="oscar" \
     # --dataset_config_name="unshuffled_deduplicated_fa" \
-    
