@@ -18,9 +18,13 @@ In the first step, we train a tokenizer to efficiently process the text input fo
 
 The tokenizer is going to be trained on the complete Persian dataset of our [datasets](#Datasets) and consequently saved in the cloned model directory. The process of training the tokenizer is provided in `t5_tokenizer_train.py`.
 
-You can simply run it by:
+You can simply run it by the below command if you wanted to use OSCAR dataset:
 ```bash
 python t5_tokenizer_train.py
+```
+or the alternative one if you wanted to use your own `.txt` file:
+```bash
+python t5_tokenizer_train.py [TRAIN_TEXT_FILE] [CACHE_DIR]
 ```
 
 ### Creating configuration
