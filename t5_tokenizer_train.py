@@ -28,7 +28,9 @@ if len(sys.argv) > 2:
   dataset = load_dataset(
     "text",
     data_files=data_files,
-    cache_dir=CACHE_DIR)
+    cache_dir=CACHE_DIR,
+    split="train")
+
 
 # Initialize a dataset - from Huggingface/Datasets
 else:
