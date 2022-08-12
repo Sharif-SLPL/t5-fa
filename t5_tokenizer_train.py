@@ -64,4 +64,4 @@ tokenizer.train_from_iterator(
 
 # Save files to disk
 Path(OUTPUT_PATH).mkdir(exist_ok=True)
-tokenizer.save(os.join(OUTPUT_PATH, "tokenizer.json"))
+tokenizer.save(os.path.join(OUTPUT_PATH, "tokenizer.json"))
