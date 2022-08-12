@@ -7,7 +7,7 @@ from pathlib import Path
 
 from t5_tokenizer_model import SentencePieceUnigramTokenizer
 
-OUTPUT_PATH = "t5-fa/tokenizer.json"
+OUTPUT_PATH = "t5-fa"
 vocab_size = 100_000
 input_sentence_size = None
 
@@ -63,5 +63,5 @@ tokenizer.train_from_iterator(
 )
 
 # Save files to disk
-Path(OUTPUT_PATH).mkdir(exist_ok=True, parents=True)
-tokenizer.save(OUTPUT_PATH)
+Path(OUTPUT_PATH).mkdir(exist_ok=True)
+tokenizer.save(os.join(OUTPUT_PATH, "tokenizer.json"))
