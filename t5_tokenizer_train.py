@@ -8,7 +8,7 @@ from pathlib import Path
 from t5_tokenizer_model import SentencePieceUnigramTokenizer
 
 OUTPUT_PATH = "t5-fa"
-vocab_size = 100_000
+vocab_size = 65_501
 input_sentence_size = None
 
 
